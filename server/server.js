@@ -14,6 +14,7 @@ var todo=new Todo({
    text:req.body.text
 });
 
+
 todo.save().then(
 (doc)=>
 {
@@ -28,8 +29,23 @@ console.log(JSON.stringify(doc,null,2))
 
 });
 
+app.get('/todos',(req,res)=>{
+console.log(Todo.find());
+    Todo.find().then((todos)=>{
+        res.send(todos);
+    })
+},(err)=>{
+
+    console.log("some error occured")
+
+});
+
+
 app.listen(3000,()=>{
     console.log("Application started on 3000");
 })
 
+module.exports={
+    app
+};
 

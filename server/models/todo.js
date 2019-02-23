@@ -1,23 +1,33 @@
 
 var mongoose=require('mongoose');
-var Todo=mongoose.model("Todo",
+const Todo=mongoose.model('Todo',
 {
-    text:{
+    text:
+    {
         type:String,
         required:true,
         minLength:1,
         
     },
-    completed:{
+
+    completed:
+    {
         type:Boolean,
         default:false
     },
-    completedAt:{
+
+    completedAt:
+    {
         type:Number,
         default:null
     }
-});
-module.exports={
+
+}
+);
+
+console.log(Todo);
+module.exports=
+{
     Todo
 
 }
